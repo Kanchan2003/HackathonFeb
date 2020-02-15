@@ -26,13 +26,13 @@ public class PlaceonPlane : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                Ray ray = camera.ScreenPointToRay(touch.position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Instantiate(objectToPlace, hit.transform.position, hit.transform.rotation);
-                }
-                else if (sessionOrigin.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
+                //Ray ray = camera.ScreenPointToRay(touch.position);
+                //RaycastHit hit;
+                //if (Physics.Raycast(ray, out hit))
+                //{
+                //    Instantiate(objectToPlace, hit.transform.position, hit.transform.rotation);
+                //}
+                if (sessionOrigin.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
                 {
                     Pose pose = hits[0].pose;
                     Instantiate(objectToPlace, pose.position, pose.rotation);
